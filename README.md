@@ -17,7 +17,7 @@
 <body>
 
 <!-- COLE AQUI O IFRAME DO CANVA -->
-<iframe src=https://www.canva.com/design/DAHAdkyirfc/39XBQMVNUplGCnPS3w5bQA/view></iframe>
+<iframe src="https://www.canva.com/design/DAHAdkyirfc/39XBQMVNUplGCnPS3w5bQA/view"></iframe>
 
 </body>
 </html>
