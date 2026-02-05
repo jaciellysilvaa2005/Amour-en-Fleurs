@@ -1,87 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Monte seu Buquê</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f8f3f6;
-  padding: 20px;
-}
+  <meta charset="UTF-8">
+  <title>Amour en Fleurs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffafc;
+      padding: 20px;
+    }
 
-.card {
-  background: #f2c9d6;
-  padding: 20px;
-  border-radius: 16px;
-  width: 250px;
-}
+    h1 {
+      text-align: center;
+      color: #b3005e;
+    }
 
-button {
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
 
-.plus { background: #7a2c4d; color: #fff; }
-.minus { background: #fff; }
+    .controls button {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.total {
-  margin-top: 20px;
-  font-size: 20px;
-}
-</style>
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn-whatsapp {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      background: #25d366;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
 
-<h2>🌸 Rosas — R$10,00</h2>
+<h1>🌸 Amour en Fleurs 🌸</h1>
 
-<div class="card">
-  <button class="minus" onclick="menos()">−</button>
-  <span id="qtd">0</span>
-  <button class="plus" onclick="mais()">+</button>
+<div class="item">
+  <div>
+    <strong>Mini Margarida 🌼</strong><br>
+    R$4,00
+  </div>
+  <div class="controls">
+    <button onclick="alterarQuantidade('mini', -1)">−</button>
+    <span id="mini">0</span>
+    <button onclick="alterarQuantidade('mini', 1)">+</button>
+  </div>
+</div>
+
+<div class="item">
+  <div>
+    <strong>Rosa 🥀</strong><br>
+    R$10,00
+  </div>
+  <div class="controls">
+    <button onclick="alterarQuantidade('rosa', -1)">−</button>
+    <span id="rosa">0</span>
+    <button onclick="alterarQuantidade('rosa', 1)">+</button>
+  </div>
+</div>
+
+<div class="item">
+  <div>
+    <strong>Girassol 🌻</strong><br>
+    R$15,00
+  </div>
+  <div class="controls">
+    <button onclick="alterarQuantidade('girassol', -1)">−</button>
+    <span id="girassol">0</span>
+    <button onclick="alterarQuantidade('girassol', 1)">+</button>
+  </div>
 </div>
 
 <div class="total">
-  Total: R$ <span id="total">0</span>,00
+  Total: R$ <span id="total">0.00</span>
 </div>
 
-<br><br>
+<button class="btn-whatsapp" onclick="finalizarPedido()">
+  Finalizar pedido via WhatsApp 📲
+</button>
 
-<button onclick="finalizar()">Finalizar pedido no WhatsApp</button>
-
-<script>
-let quantidade = 0;
-let preco = 10;
-
-function mais() {
-  quantidade++;
-  atualizar();
-}
-
-function menos() {
-  if (quantidade > 0) {
-    quantidade--;
-    atualizar();
-  }
-}
-
-function atualizar() {
-  document.getElementById("qtd").innerText = quantidade;
-  document.getElementById("total").innerText = quantidade * preco;
-}
-
-function finalizar() {
-  let mensagem = `Olá! Quero um buquê com ${quantidade} rosas. Total: R$ ${quantidade * preco},00`;
-  let telefone = "5599999999999"; // TROQUE PELO SEU
-  let url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-  window.open(url, "_blank");
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
+
